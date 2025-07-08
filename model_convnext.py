@@ -250,7 +250,7 @@ class knowledge_adaptation_convnext(nn.Module):
         self.encoder = ConvNeXt(Block, in_chans=3,num_classes=1000, depths=[3, 3, 27, 3], dims=[256, 512, 1024,2048], drop_path_rate=0., layer_scale_init_value=1e-6, head_init_scale=1.)
         pretrained_model = ConvNeXt0(Block, in_chans=3,num_classes=1000, depths=[3, 3, 27, 3], dims=[256, 512, 1024, 2048], drop_path_rate=0., layer_scale_init_value=1e-6, head_init_scale=1.)
         #pretrained_model=nn.DataParallel(pretrained_model)
-        checkpoint=torch.load('./weights/convnext_xlarge_22k_1k_384_ema.pth')
+        checkpoint=torch.load(r'C:\Users\Divyam Chandak\Desktop\IFBlend\weights\convnext_xlarge_22k_1k_384_ema.pth')
         #for k,v in checkpoint["model"].items():
             #print(k)
         #url="https://dl.fbaipublicfiles.com/convnext/convnext_large_1k_384.pth"

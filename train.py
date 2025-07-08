@@ -9,7 +9,6 @@ from torch.optim.lr_scheduler import MultiStepLR
 from torch.utils.data import DataLoader
 from utils import validate_model, save_checkpoint, load_checkpoint
 from utils_model import get_model
-
 import wandb
 wandb.init(project="IFBLEND_TRAIN")
 
@@ -115,7 +114,8 @@ if __name__ == '__main__':
     for epoch in range(opt.n_epochs):
         epoch_loss = 0
         for i, batch in enumerate(train_dataloader):
-            input_img = Variable(batch[0].type(Tensor))
+            input_img = Tensor(batch[0])
+            gt_img = Tensor(batch[1])
             gt_img = Variable(batch[1].type(Tensor))
             optimizer.zero_grad()
             out_img = model_net(input_img)
